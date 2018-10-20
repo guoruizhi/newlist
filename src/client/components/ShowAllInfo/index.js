@@ -1,20 +1,20 @@
-import React, { Component } from "react";
-import UserInfo from "../UserInfo";
-import { connect } from "react-redux";
-import * as actions from "../../actions";
-import * as sortF from "../../helperfunction/Sort";
+import React, { Component } from 'react';
+import UserInfo from '../UserInfo';
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
+import * as sortF from '../../helperfunction/Sort';
 
-import { withStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
+import { withStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
 const CustomTableCell = withStyles(theme => ({
   head: {
-    fontSize: "110%",
-    backgroundColor: "#2196f3",
+    fontSize: '110%',
+    backgroundColor: '#2196f3',
     color: theme.palette.common.white
   },
   body: {
@@ -27,7 +27,7 @@ class ShowAllInfo extends Component {
     super(props);
     this.state = {
       flag: 0,
-      colName: "",
+      colName: '',
       orderUser: []
     };
   }
@@ -39,16 +39,12 @@ class ShowAllInfo extends Component {
       <Table style={{ margminTop: 10, marginBottom: 10 }}>
         <TableHead>
           <TableRow>
-            <CustomTableCell>Edit</CustomTableCell>
-            <CustomTableCell>Delete</CustomTableCell>
-            <CustomTableCell onClick={this.props.sortFn}>
-              First Name
-            </CustomTableCell>
-            <CustomTableCell onClick={this.props.sortLn}>
-              Last Name
-            </CustomTableCell>
+            <CustomTableCell onClick={this.props.sortFn}>First Name</CustomTableCell>
+            <CustomTableCell onClick={this.props.sortLn}>Last Name</CustomTableCell>
             <CustomTableCell onClick={this.props.sortSex}>Sex</CustomTableCell>
             <CustomTableCell onClick={this.props.sortAge}>Age</CustomTableCell>
+            <CustomTableCell>Edit</CustomTableCell>
+            <CustomTableCell>Delete</CustomTableCell>
           </TableRow>
         </TableHead>
         <TableBody>

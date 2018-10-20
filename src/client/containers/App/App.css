@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .content {
   border: 1px solid gray;
   background-color: white;
@@ -41,5 +46,16 @@ input {
 }
 ::placeholder {
   color: white;
-  opacity: 1; /* Firefox */
+  opacity: 1;
+}
+
+a:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+  transition: transform 0.2s ease-in-out;
+}
+
+.app-title {
+  text-align: center;
+  font-weight: bold;
 }

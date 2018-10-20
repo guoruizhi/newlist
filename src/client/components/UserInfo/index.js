@@ -1,10 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { withStyles } from "@material-ui/core/styles";
-import { TableRow } from "@material-ui/core";
-import TableCell from "@material-ui/core/TableCell";
-import Button from "@material-ui/core/Button";
-import { PromiseProvider } from "mongoose";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { withStyles } from '@material-ui/core/styles';
+import { TableRow } from '@material-ui/core';
+import TableCell from '@material-ui/core/TableCell';
+import Button from '@material-ui/core/Button';
 
 const CustomTableCell = withStyles(theme => ({
   body: {
@@ -12,25 +11,19 @@ const CustomTableCell = withStyles(theme => ({
   }
 }))(TableCell);
 
-const UserInfo = ({
-  FirstName,
-  LastName,
-  Sex,
-  Age,
-  del,
-  id,
-  getOne,
-  updateOne,
-  getUserList
-}) => {
+const UserInfo = ({ FirstName, LastName, Sex, Age, del, id, getOne, updateOne, getUserList }) => {
   return (
     <TableRow>
+      <CustomTableCell>{FirstName}</CustomTableCell>
+      <CustomTableCell>{LastName}</CustomTableCell>
+      <CustomTableCell>{Sex}</CustomTableCell>
+      <CustomTableCell>{Age}</CustomTableCell>
       <CustomTableCell>
-        <Button variant="contained" color="default" aria-lable="Edit">
+        <Button variant="flat" color="primary" aria-label="Edit">
           <Link
-            style={{ textDecoration: "none" }}
+            style={{ textDecoration: 'none' }}
             to={{
-              pathname: "/edit",
+              pathname: '/edit',
               state: {
                 fn: FirstName,
                 ln: LastName,
@@ -46,22 +39,17 @@ const UserInfo = ({
       </CustomTableCell>
       <CustomTableCell>
         <Button
-          variant="contained"
-          color="inherit"
+          variant="flat"
+          color="secondary"
           aria-label="Delete"
           onClick={() => {
             del(id);
-            // window.location.reload();
             getUserList();
           }}
         >
           Delete
         </Button>
       </CustomTableCell>
-      <CustomTableCell>{FirstName}</CustomTableCell>
-      <CustomTableCell>{LastName}</CustomTableCell>
-      <CustomTableCell>{Sex}</CustomTableCell>
-      <CustomTableCell>{Age}</CustomTableCell>
     </TableRow>
   );
 };
